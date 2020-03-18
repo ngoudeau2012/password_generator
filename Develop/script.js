@@ -14,16 +14,28 @@ var uppercaseCharacters = confirm("Do you want to include uppercase letters in y
 var specialCharacters = confirm("Do you want to include special symbols in your password?")
 var numbersCharacters = confirm("Do you want to include numbers in your password?")
 
-// var passwordCharacters =  letters
-//     if(uppercaseCharacters = "true"){
-//       var passwordCharacters = passwordCharacters.concat(upperCaseLetters);
-//     } else {
-//       var passwordCharacters = passwordCharacters
-//     }
-//     if (specialCharacters = true){
-//       var passwordCharacters = passwordCharacters.concat(specialSymbols);
-//     }
-//     console.log(passwordCharacters);
+console.log(uppercaseCharacters)
+console.log(specialCharacters)
+console.log(numbersCharacters)
+
+var passwordCharacters =  letters
+    if(uppercaseCharacters === true){
+      var passwordCharacters = passwordCharacters.concat(upperCaseLetters);
+    } else {
+      var passwordCharacters = passwordCharacters
+    }
+    if (specialCharacters === true){
+      var passwordCharacters = passwordCharacters.concat(specialSymbols);
+    } else {
+      var passwordCharacters = passwordCharacters
+    }
+    if (numbersCharacters === true){
+      var passwordCharacters = passwordCharacters.concat(numbers);
+    } else {
+      var passwordCharacters = passwordCharacters
+    }
+  
+    console.log(passwordCharacters);
 
 function generatePassword() {
   /****
