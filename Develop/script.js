@@ -9,39 +9,62 @@ var upperCaseLetters = [];
 var specialSymbols = ["!","@","#","$","%","^","&","*","~","?","<",">","+","-","_","="]
 var numbers = ["1","2","3","4","5","6","7","8","9","0"]
 
-var characterLimit = prompt("How many characters long would you like your password to be?")
-var uppercaseCharacters = confirm("Do you want to include uppercase letters in your password?")
-var specialCharacters = confirm("Do you want to include special symbols in your password?")
-var numbersCharacters = confirm("Do you want to include numbers in your password?")
+var characterLimit = parseInt(prompt("How many characters long would you like your password to be?"))
+userInput();
 
-console.log(uppercaseCharacters)
-console.log(specialCharacters)
-console.log(numbersCharacters)
+function userInput(){
+  if(isNaN(characterLimit) === true){
+    var newCharacterLimit = prompt("Please input a valid number!") 
+    characterLimit = newCharacterLimit;
+    userInput();
+  } else{
+    characterInput();
+  }
+}
+function characterInput(){
+  var uppercaseCharacters = confirm("Do you want to include uppercase letters in your password?");
+  var specialCharacters = confirm("Do you want to include special symbols in your password?");
+  var numbersCharacters = confirm("Do you want to include numbers in your password?");
+  createCharacters(uppercaseCharacters, specialCharacters,numbersCharacters);
+  }
 
-var passwordCharacters =  letters
-    if(uppercaseCharacters === true){
-      var passwordCharacters = passwordCharacters.concat(upperCaseLetters);
-    } else {
-      var passwordCharacters = passwordCharacters
-    }
-    if (specialCharacters === true){
-      var passwordCharacters = passwordCharacters.concat(specialSymbols);
-    } else {
-      var passwordCharacters = passwordCharacters
-    }
-    if (numbersCharacters === true){
-      var passwordCharacters = passwordCharacters.concat(numbers);
-    } else {
-      var passwordCharacters = passwordCharacters
-    }
-  
-    console.log(passwordCharacters);
+function createCharacters(uppercaseCharacters,specialCharacters,numbersCharacters){
+  var passwordCharacters =  letters
+  if(uppercaseCharacters === true){
+    var passwordCharacters = passwordCharacters.concat(upperCaseLetters);
+  } else {
+    var passwordCharacters = passwordCharacters
+  }
+  if (specialCharacters === true){
+    var passwordCharacters = passwordCharacters.concat(specialSymbols);
+  } else {
+    var passwordCharacters = passwordCharacters
+  }
+  if (numbersCharacters === true){
+    var passwordCharacters = passwordCharacters.concat(numbers);
+  } else {
+    var passwordCharacters = passwordCharacters
+  }
+  console.log(passwordCharacters);
+  randomPassword(passwordCharacters);
+}
+
+  var passwordString ; 
+    
+  function randomPassword(passwordCharacters){
+  for(var i = 0; i < characterLimit; i++){
+    passwordCharacters[Math.floor(Math.random(passwordCharacters.length)* passwordCharacters.length)];
+    passwordString += passwordCharacters[Math.floor(Math.random(passwordCharacters.length)* passwordCharacters.length)];
+    console.log(passwordString);
+  }
+  }
+
 
 function generatePassword() {
-  /****
-   * WRITE YOUR CODE HERE
-   */
-  alert("I am in generate password");
+  
+
+
+
 
   return "sometext";
 }
